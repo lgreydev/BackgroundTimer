@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import AloeStackView
+import TinyConstraints
 
-class ViewController: UIViewController {
+class ViewController: AloeStackViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+
+        view.backgroundColor = .red
     }
 
 

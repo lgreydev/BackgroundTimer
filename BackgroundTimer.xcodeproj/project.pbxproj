@@ -10,9 +10,10 @@
 		5E8AE5D7287D733A00D7DA5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE5D6287D733A00D7DA5C /* AppDelegate.swift */; };
 		5E8AE5D9287D733A00D7DA5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE5D8287D733A00D7DA5C /* SceneDelegate.swift */; };
 		5E8AE5DB287D733A00D7DA5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE5DA287D733A00D7DA5C /* ViewController.swift */; };
-		5E8AE5DE287D733A00D7DA5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E8AE5DC287D733A00D7DA5C /* Main.storyboard */; };
 		5E8AE5E0287D733C00D7DA5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E8AE5DF287D733C00D7DA5C /* Assets.xcassets */; };
 		5E8AE5E3287D733C00D7DA5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E8AE5E1287D733C00D7DA5C /* LaunchScreen.storyboard */; };
+		5E8AE5EC287D741600D7DA5C /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 5E8AE5EB287D741600D7DA5C /* TinyConstraints */; };
+		5E8AE5EF287D743000D7DA5C /* AloeStackView in Frameworks */ = {isa = PBXBuildFile; productRef = 5E8AE5EE287D743000D7DA5C /* AloeStackView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +21,6 @@
 		5E8AE5D6287D733A00D7DA5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E8AE5D8287D733A00D7DA5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5E8AE5DA287D733A00D7DA5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5E8AE5DD287D733A00D7DA5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E8AE5DF287D733C00D7DA5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E8AE5E2287D733C00D7DA5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E8AE5E4287D733C00D7DA5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E8AE5EC287D741600D7DA5C /* TinyConstraints in Frameworks */,
+				5E8AE5EF287D743000D7DA5C /* AloeStackView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +61,6 @@
 				5E8AE5D6287D733A00D7DA5C /* AppDelegate.swift */,
 				5E8AE5D8287D733A00D7DA5C /* SceneDelegate.swift */,
 				5E8AE5DA287D733A00D7DA5C /* ViewController.swift */,
-				5E8AE5DC287D733A00D7DA5C /* Main.storyboard */,
 				5E8AE5DF287D733C00D7DA5C /* Assets.xcassets */,
 				5E8AE5E1287D733C00D7DA5C /* LaunchScreen.storyboard */,
 				5E8AE5E4287D733C00D7DA5C /* Info.plist */,
@@ -83,6 +84,10 @@
 			dependencies = (
 			);
 			name = BackgroundTimer;
+			packageProductDependencies = (
+				5E8AE5EB287D741600D7DA5C /* TinyConstraints */,
+				5E8AE5EE287D743000D7DA5C /* AloeStackView */,
+			);
 			productName = BackgroundTimer;
 			productReference = 5E8AE5D3287D733A00D7DA5C /* BackgroundTimer.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,10 @@
 				Base,
 			);
 			mainGroup = 5E8AE5CA287D733A00D7DA5C;
+			packageReferences = (
+				5E8AE5EA287D741600D7DA5C /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				5E8AE5ED287D743000D7DA5C /* XCRemoteSwiftPackageReference "AloeStackView" */,
+			);
 			productRefGroup = 5E8AE5D4287D733A00D7DA5C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +136,6 @@
 			files = (
 				5E8AE5E3287D733C00D7DA5C /* LaunchScreen.storyboard in Resources */,
 				5E8AE5E0287D733C00D7DA5C /* Assets.xcassets in Resources */,
-				5E8AE5DE287D733A00D7DA5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +155,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5E8AE5DC287D733A00D7DA5C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E8AE5DD287D733A00D7DA5C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5E8AE5E1287D733C00D7DA5C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +292,6 @@
 				INFOPLIST_FILE = BackgroundTimer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +319,6 @@
 				INFOPLIST_FILE = BackgroundTimer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +356,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5E8AE5EA287D741600D7DA5C /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		5E8AE5ED287D743000D7DA5C /* XCRemoteSwiftPackageReference "AloeStackView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marlimox/AloeStackView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5E8AE5EB287D741600D7DA5C /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E8AE5EA287D741600D7DA5C /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+		5E8AE5EE287D743000D7DA5C /* AloeStackView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E8AE5ED287D743000D7DA5C /* XCRemoteSwiftPackageReference "AloeStackView" */;
+			productName = AloeStackView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E8AE5CB287D733A00D7DA5C /* Project object */;
 }
