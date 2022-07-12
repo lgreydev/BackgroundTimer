@@ -147,7 +147,6 @@ private extension ViewController {
         timeString += String(format: "%02d", min)
         timeString += ":"
         timeString += String(format: "%02d", sec)
-        timeString += ":"
 
         return timeString
     }
