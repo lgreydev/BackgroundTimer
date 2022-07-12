@@ -44,10 +44,12 @@ class ViewController: UIViewController {
     let STOP_TIME_KEY = "stopTime"
     let COUNTING_KEY = "countingKey"
 
+    var scheduledTimer: Timer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .red
+        view.backgroundColor = .lightGray
 
         addRows()
 
@@ -78,6 +80,41 @@ private extension ViewController {
         }
     }
 
+
+
+    func setStartTime(date: Date?) {
+        startTime = date
+        userDefaults.set(startTime, forKey: START_TIME_KEY)
+    }
+
+    func setStopTime(date: Date?) {
+        stopTime = date
+        userDefaults.set(stopTime, forKey: STOP_TIME_KEY)
+    }
+
+    func setTimerCounting(_ value: Bool) {
+        timerCounting = value
+        userDefaults.set(timerCounting, forKey: COUNTING_KEY)
+    }
+
+    func startTimer() {
+        scheduledTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
+        setTimerCounting(true)
+        startStopButton.setTitle("STOP", for: .normal)
+        startStopButton.setTitleColor(UIColor.red, for: .normal)
+    }
+
+    func stopTimer() {
+
+        if scheduledTimer != nil {
+            scheduledTimer.invalidate()
+        }
+
+        setTimerCounting(false)
+        startStopButton.setTitle("START", for: .normal)
+        startStopButton.setTitleColor(UIColor.systemGreen, for: .normal)
+    }
+
     @objc func startStopAction() {
         if timerCounting {
             setStopTime(date: Date())
@@ -91,26 +128,7 @@ private extension ViewController {
         print(#function)
     }
 
-    func setStartTime(date: Date?) {
-        startTime = date
-        userDefaults.set(startTime, forKey: START_TIME_KEY)
-    }
-
-    func setStopTime(date: Date?) {
-        stopTime = date
-        userDefaults.set(stopTime, forKey: STOP_TIME_KEY)
-    }
-
-    func setCounting(_ value: Bool) {
-        timerCounting = value
-        userDefaults.set(timerCounting, forKey: COUNTING_KEY)
-    }
-
-    func startTimer() {
-
-    }
-
-    func stopTimer() {
+    @objc func  refreshValue() {
 
     }
 }
