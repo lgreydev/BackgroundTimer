@@ -141,11 +141,23 @@ private extension ViewController {
         return timeString
     }
 
+    func calcRestartTime(start: Date, stop: Date) -> Date {
+        let diff = start.timeIntervalSince(stop)
+        return Date().addingTimeInterval(diff)
+    }
+
     @objc func startStopAction() {
         if timerCounting {
             setStopTime(date: Date())
             stopTimer()
         } else {
+            if let stop = stopTime {
+                let restartTime = calcRestartTime(start: startTime!, stop: stop)
+                setStopTime(date: nil)
+                setStartTime(date: restartTime)
+            } else {
+                setStartTime(date: startTime)
+            }
             startTimer()
         }
     }
