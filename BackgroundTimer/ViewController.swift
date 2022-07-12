@@ -49,13 +49,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .cyan
 
         addRows()
 
         startTime = userDefaults.object(forKey: START_TIME_KEY) as? Date
         stopTime = userDefaults.object(forKey: STOP_TIME_KEY) as? Date
         timerCounting = userDefaults.bool(forKey: COUNTING_KEY)
+
+        if timerCounting {
+            startTimer()
+        } else {
+            stopTimer()
+            if let start = startTime {
+                if let stop = stopTime {
+                    let time = calcRestartTime(start: start, stop: stop)
+                    let diff = Date().timeIntervalSince(time)
+                    setTimeLabel(Int(diff))
+                }
+            }
+        }
     }
 }
 
@@ -79,8 +92,6 @@ private extension ViewController {
             resetButton.trailingToSuperview(offset: 50)
         }
     }
-
-
 
     func setStartTime(date: Date?) {
         startTime = date
@@ -156,20 +167,26 @@ private extension ViewController {
                 setStopTime(date: nil)
                 setStartTime(date: restartTime)
             } else {
-                setStartTime(date: startTime)
+                setStartTime(date: Date())
             }
             startTimer()
         }
     }
 
     @objc func resetAction() {
-        print(#function)
+        setStopTime(date: nil)
+        setStartTime(date: nil)
+        timeLabel.text = makeTimeString(hour: 0, min: 0, sec: 0)
+        stopTimer()
     }
 
     @objc func  refreshValue() {
         if let start = startTime {
             let diff = Date().timeIntervalSince(start)
             setTimeLabel(Int(diff))
+        } else {
+            stopTimer()
+            setTimeLabel(0)
         }
     }
 }
