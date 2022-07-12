@@ -115,6 +115,32 @@ private extension ViewController {
         startStopButton.setTitleColor(UIColor.systemGreen, for: .normal)
     }
 
+    func setTimeLabel(_ value: Int) {
+        let time = secondsToHoursMinutesSeconds(value)
+        let timeString = makeTimeString(hour: time.0, min: time.1, sec: time.2)
+        timeLabel.text = timeString
+    }
+
+    func secondsToHoursMinutesSeconds(_ ms: Int) -> (Int, Int, Int) {
+        let hour = ms / 3600
+        let min = (ms % 3600) / 60
+        let sec = (ms % 3600) % 60
+        return (hour, min, sec)
+    }
+
+    func makeTimeString(hour: Int, min: Int, sec: Int) -> String {
+        var timeString = ""
+
+        timeString += String(format: "%02d", hour)
+        timeString += ":"
+        timeString += String(format: "%02d", min)
+        timeString += ":"
+        timeString += String(format: "%02d", sec)
+        timeString += ":"
+
+        return timeString
+    }
+
     @objc func startStopAction() {
         if timerCounting {
             setStopTime(date: Date())
@@ -129,6 +155,9 @@ private extension ViewController {
     }
 
     @objc func  refreshValue() {
-
+        if let start = startTime {
+            let diff = Date().timeIntervalSince(start)
+            setTimeLabel(Int(diff))
+        }
     }
 }
