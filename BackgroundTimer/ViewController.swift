@@ -50,6 +50,10 @@ class ViewController: UIViewController {
         view.backgroundColor = .red
 
         addRows()
+
+        startTime = userDefaults.object(forKey: START_TIME_KEY) as? Date
+        stopTime = userDefaults.object(forKey: STOP_TIME_KEY) as? Date
+        timerCounting = userDefaults.bool(forKey: COUNTING_KEY)
     }
 }
 
@@ -75,10 +79,38 @@ private extension ViewController {
     }
 
     @objc func startStopAction() {
-        print(#function)
+        if timerCounting {
+            setStopTime(date: Date())
+            stopTimer()
+        } else {
+            startTimer()
+        }
     }
 
     @objc func resetAction() {
         print(#function)
+    }
+
+    func setStartTime(date: Date?) {
+        startTime = date
+        userDefaults.set(startTime, forKey: START_TIME_KEY)
+    }
+
+    func setStopTime(date: Date?) {
+        stopTime = date
+        userDefaults.set(stopTime, forKey: STOP_TIME_KEY)
+    }
+
+    func setCounting(_ value: Bool) {
+        timerCounting = value
+        userDefaults.set(timerCounting, forKey: COUNTING_KEY)
+    }
+
+    func startTimer() {
+
+    }
+
+    func stopTimer() {
+
     }
 }
