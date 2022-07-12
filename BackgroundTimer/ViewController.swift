@@ -6,23 +6,22 @@
 //
 
 import UIKit
-//import AloeStackView
 import TinyConstraints
 
 class ViewController: UIViewController {
 
-    private lazy var label: UILabel = {
+    private lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.text = "Hello"
         label.font = UIFont.systemFont(ofSize: 30.0)
         return label
     }()
 
-    private lazy var startButton: UIButton = {
+    private lazy var startStopButton: UIButton = {
         let button = UIButton()
         button.setTitle("START", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30.0)
-        button.addTarget(self, action: #selector(tapStartButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(startStopAction), for: .touchUpInside)
         return button
     }()
 
@@ -30,9 +29,20 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.setTitle("RESET", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30.0)
-        button.addTarget(self, action: #selector(tapResetButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(resetAction), for: .touchUpInside)
         return button
     }()
+
+    var timerCounting: Bool = false
+
+    var startTime: Date?
+    var stopTime: Date?
+
+    let userDefaults = UserDefaults.standard
+
+    let START_TIME_KEY = "startTime"
+    let STOP_TIME_KEY = "stopTime"
+    let COUNTING_KEY = "countingKey"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,33 +53,32 @@ class ViewController: UIViewController {
     }
 }
 
-
 private extension ViewController {
     func addRows() {
         do {
-            view.addSubview(label)
-            label.topToSuperview(offset: 100)
-            label.centerXToSuperview()
+            view.addSubview(timeLabel)
+            timeLabel.topToSuperview(offset: 100)
+            timeLabel.centerXToSuperview()
         }
 
         do {
-            view.addSubview(startButton)
-            startButton.bottom(to: label, offset: 50)
-            startButton.leadingToSuperview(offset: 50)
+            view.addSubview(startStopButton)
+            startStopButton.bottom(to: timeLabel, offset: 50)
+            startStopButton.leadingToSuperview(offset: 50)
         }
 
         do {
             view.addSubview(resetButton)
-            resetButton.bottom(to: label, offset: 50)
+            resetButton.bottom(to: timeLabel, offset: 50)
             resetButton.trailingToSuperview(offset: 50)
         }
     }
 
-    @objc func tapStartButton() {
+    @objc func startStopAction() {
         print(#function)
     }
 
-    @objc func tapResetButton() {
+    @objc func resetAction() {
         print(#function)
     }
 }
